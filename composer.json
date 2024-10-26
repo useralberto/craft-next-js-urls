@@ -1,0 +1,54 @@
+{
+  "name": "useralberto/craft-next-js-urls",
+  "description": "It helps to collect the urls of the sections and categories created from the craft cms panel and map them into a json to be consumed in NextJs.",
+  "type": "craft-plugin",
+  "license": "mit",
+  "keywords": [
+    "craft",
+    "cms",
+    "craftcms",
+    "Craft Next js Urls"
+  ],
+  "support": {
+    "email": "lalonso.dev@gmail.com",
+    "issues": "https://github.com/useralberto/craft-next-js-urls/issues?state=open",
+    "source": "https://github.com/useralberto/craft-next-js-urls",
+    "docs": "https://github.com/useralberto/craft-next-js-urls",
+    "rss": "https://github.com/useralberto/craft-next-js-urls/releases.atom"
+  },
+  "require": {
+    "php": ">=8.2",
+    "craftcms/cms": "^5.4.0"
+  },
+  "require-dev": {
+    "craftcms/ecs": "dev-main",
+    "craftcms/phpstan": "dev-main"
+  },
+  "autoload": {
+    "psr-4": {
+      "useralberto\\craftnextjsurls\\": "src/"
+    }
+  },
+  "extra": {
+    "handle": "next-js-urls",
+    "name": "Nextjs Urls",
+    "developer": "useralberto",
+    "documentationUrl": "https://github.com/useralberto/craft-next-js-urls",
+    "class": "useralberto\\craftnextjsurls\\CraftNextJsUrls"
+  },
+  "scripts": {
+    "check-cs": "ecs check --ansi",
+    "fix-cs": "ecs check --ansi --fix",
+    "phpstan": "phpstan --memory-limit=1G"
+  },
+  "config": {
+    "sort-packages": true,
+    "platform": {
+      "php": "8.2"
+    },
+    "allow-plugins": {
+      "yiisoft/yii2-composer": true,
+      "craftcms/plugin-installer": true
+    }
+  }
+}
