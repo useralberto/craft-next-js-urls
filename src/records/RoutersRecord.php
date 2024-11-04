@@ -8,6 +8,6 @@ class RoutersRecord extends ActiveRecord
 {
     public static function tableName(): string
     {
-        return '{{%nextJsUrls_routers}}';
+        return '{{%nextjsurls_routers}}';
     }
 }
