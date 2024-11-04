@@ -31,17 +31,15 @@ class Install extends Migration
 
     private function createTables()
     {
-        if (!$this->db->tableExists($this->tableRouters)) {
-            $this->createTable($this->tableRouters, [
-                'id' => $this->primaryKey(),
-                'elementId' => $this->integer()->notNull(),
-                'siteId' => $this->integer()->notNull(),
-                'oldUri' => $this->string()->null(),
-                'newUri' => $this->string()->notNull(),
-                'dateUpdated' => $this->dateTime()->notNull(),
-                'dateCreated' => $this->dateTime()->notNull(),
-            ]);
-        }
+        $this->createTable($this->tableRouters, [
+            'id' => $this->primaryKey(),
+            'elementId' => $this->integer()->notNull(),
+            'siteId' => $this->integer()->notNull(),
+            'oldUri' => $this->string()->null(),
+            'newUri' => $this->string()->notNull(),
+            'dateUpdated' => $this->dateTime()->notNull(),
+            'dateCreated' => $this->dateTime()->notNull(),
+        ]);
     }
     private function createIndexs()
     {
