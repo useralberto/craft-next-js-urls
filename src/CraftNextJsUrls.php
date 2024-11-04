@@ -23,7 +23,7 @@ use useralberto\craftnextjsurls\services\RoutersService;
 
 class CraftNextJsUrls extends BasePlugin
 {
-    public string $schemaVersion = '1.0.0';
+    public string $schemaVersion = '1.0.1';
     public static $plugin;
 
     public static function config(): array
