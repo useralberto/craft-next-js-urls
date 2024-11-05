@@ -40,12 +40,16 @@ class RoutersService extends Component
         }
         return false;
     }
-    public function checkIfRouteChanged($event)
+    public function checkIfRouteChanged($event): void
     {
         $element = $event->sender;
         $siteId = $element->siteId;
         $newUri = $element->uri;
         $id = $element->canonicalId;
+
+        if (empty($newUri)) {
+            return;
+        }
 
         $routeRecord = RoutersRecord::findOne(['elementId' => $id, 'siteId' => $siteId]);
         if ($routeRecord) {
