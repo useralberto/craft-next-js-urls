@@ -13,9 +13,9 @@ class UpdateRoutesJob extends BaseJob
 {
     public function execute($queue): void
     {
-        $filePath = (App::env("JSON_PATH") ?? Craft::getAlias('@webroot')) . '/routes.json';
+        $filePath = (App::env("JSON_PATH") ?? Craft::getAlias('@webroot')) . 'routes.json';
         $existingRoutes = file_exists($filePath) ? json_decode(file_get_contents($filePath), true) : [];
-        //$updatedRoutes = $existingRoutes;
+        $updatedRoutes = $existingRoutes;
 
         $defaultSite = Craft::$app->sites->getPrimarySite();
         $sites = Craft::$app->sites->getAllSites();
@@ -26,12 +26,8 @@ class UpdateRoutesJob extends BaseJob
         $this->processElements($entries, $updatedRoutes, $sites);
         $this->processElements($categories, $updatedRoutes, $sites);
 
-        if ($existingRoutes) {
-            file_put_contents($filePath, json_encode($updatedRoutes, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
-            Craft::info('Rutas actualizadas con éxito', __METHOD__);
-            /*} else {*/
-            /*Craft::info('No se detectaron cambios en las rutas', __METHOD__);*/
-        }
+        file_put_contents($filePath, json_encode($updatedRoutes, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+        Craft::info('Rutas actualizadas con éxito', __METHOD__);
     }
 
 
