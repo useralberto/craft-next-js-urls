@@ -14,8 +14,8 @@ class UpdateRoutesJob extends BaseJob
     public function execute($queue): void
     {
         $filePath = (App::env("JSON_PATH") ?? Craft::getAlias('@webroot')) . '/routes.json';
-        $existingRoutes = file_exists($filePath) ? json_decode(file_get_contents($filePath), true) : [];
-        $updatedRoutes = $existingRoutes;
+        //$existingRoutes = file_exists($filePath) ? json_decode(file_get_contents($filePath), true) : [];
+        $updatedRoutes = [];
 
         $defaultSite = Craft::$app->sites->getPrimarySite();
         $sites = Craft::$app->sites->getAllSites();
